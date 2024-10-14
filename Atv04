@@ -1,0 +1,46 @@
+def fatorial(n):
+
+    if n == 1 or n == 0:
+        return 1
+
+    return n * fatorial(n - 1)
+
+numero = int(input("Fatorial de: "))
+
+resultado = fatorial(numero)
+
+print(f"{numero}! = ", end="")
+for i in range(numero, 1, -1):
+    print(f"{i} . ", end="")
+print(f"1 = {resultado}")
+
+def tabuada(numero, inicio, fim):
+    print(f"\nVou montar a tabuada de {numero} começando em {inicio} e terminando em {fim}:")
+    for i in range(inicio, fim + 1):
+        print(f"{numero} X {i} = {numero * i}")
+
+numero = int(input("Montar a tabuada de: "))
+inicio = int(input("Começar por: "))
+fim = int(input("Terminar em: "))
+
+tabuada(numero, inicio, fim)
+
+def calcular_salario_atual(salario_inicial, ano_contratacao, ano_atual):
+
+    aumento = 1.5 / 100
+    salario = salario_inicial
+
+    for ano in range(ano_contratacao + 1, ano_atual + 1):
+        salario += salario * aumento
+        print(f"Ano: {ano}, Aumento: {aumento * 100:.2f}%, Salário: R$ {salario:.2f}")
+        aumento *= 2
+
+    return salario
+
+salario_inicial = float(input("Digite o salário inicial do funcionário: "))
+ano_contratacao = 1995
+ano_atual = int(input("Digite o ano atual: "))
+
+salario_atual = calcular_salario_atual(salario_inicial, ano_contratacao, ano_atual)
+
+print(f"\nO salário atual do funcionário em {ano_atual} é: R$ {salario_atual:.2f}")
